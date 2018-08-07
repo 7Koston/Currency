@@ -2,6 +2,8 @@ package by.st.currency;
 
 import android.support.multidex.MultiDexApplication;
 
+import by.st.currency.api.RetrofitClient;
+
 public class App extends MultiDexApplication {
 
     private static App singletonApp;
@@ -14,7 +16,6 @@ public class App extends MultiDexApplication {
     public void onCreate() {
         super.onCreate();
         RetrofitClient.initialize(getApplicationContext());
-        Picasso.get().setLoggingEnabled(true);
         singletonApp = this;
     }
 }

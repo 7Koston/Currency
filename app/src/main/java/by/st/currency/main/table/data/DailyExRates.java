@@ -3,11 +3,12 @@ package by.st.currency.main.table.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.tickaroo.tikxml.annotation.Attribute;
 import com.tickaroo.tikxml.annotation.Element;
-import com.tickaroo.tikxml.annotation.PropertyElement;
 import com.tickaroo.tikxml.annotation.Xml;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @Xml
 public class DailyExRates implements Parcelable {
@@ -23,30 +24,37 @@ public class DailyExRates implements Parcelable {
             return new DailyExRates[size];
         }
     };
-    @PropertyElement
-    private String Date;
-    @Element
-    private ArrayList<Currency> currency;
+
+    @Element(name = "Currency")
+    List<Currency> currency;
+    @Attribute(name = "Date")
+    private String date;
+
+    public DailyExRates() {
+
+    }
 
     private DailyExRates(Parcel in) {
-        Date = in.readString();
+        date = in.readString();
+        if (currency == null)
+            currency = new ArrayList<>();
         in.readList(currency, Currency.class.getClassLoader());
     }
 
     public String getDate() {
-        return Date;
+        return date;
     }
 
     public void setDate(String Date) {
-        this.Date = Date;
+        this.date = Date;
     }
 
-    public ArrayList<Currency> getCurrency() {
-        return currency;
+    public List<Currency> getCurrency() {
+        return this.currency;
     }
 
-    public void setCurrency(ArrayList<Currency> Currency) {
-        this.currency = Currency;
+    public void setCurrency(List<Currency> currency) {
+        this.currency = currency;
     }
 
     @Override
@@ -56,7 +64,7 @@ public class DailyExRates implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(Date);
+        dest.writeString(date);
         dest.writeList(currency);
     }
 }

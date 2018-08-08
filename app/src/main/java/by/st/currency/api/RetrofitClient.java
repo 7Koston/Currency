@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 
+import com.tickaroo.tikxml.TikXml;
 import com.tickaroo.tikxml.retrofit.TikXmlConverterFactory;
 
 import java.util.Arrays;
@@ -34,7 +35,10 @@ public class RetrofitClient {
 
         Retrofit.Builder rBuilder = new Retrofit.Builder().
                 baseUrl("http://www.nbrb.by/Services/")
-                .addConverterFactory(TikXmlConverterFactory.create())
+                .addConverterFactory(TikXmlConverterFactory.create(new TikXml.Builder()
+                        .exceptionOnUnreadXml(true)
+                        .writeDefaultXmlDeclaration(false)
+                        .build()))
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
 
         rBuilder.client(okHttpClient);

@@ -1,12 +1,10 @@
 package by.st.currency.main;
 
-import java.util.ArrayList;
-
-import by.st.currency.main.table.data.Currency;
+import by.st.currency.main.table.data.DailyExRates;
 
 public interface MainView {
 
-    void onGetFinished(ArrayList<Currency> response);
+    void onGetFinished(DailyExRates response);
 
     void onErrorMessage(String error);
 }

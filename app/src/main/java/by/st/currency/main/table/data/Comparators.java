@@ -24,6 +24,7 @@ public final class Comparators {
         return new ScaleComparator();
     }
 
+
     private static class CharCodeComparator implements Comparator<Currency> {
 
         @Override

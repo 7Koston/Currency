@@ -7,7 +7,7 @@ import by.st.currency.main.table.data.DailyExRates;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.observers.DisposableSingleObserver;
 
-public class MainPresenter extends LifecycleCallbacks {
+class MainPresenter extends LifecycleCallbacks {
 
     private final MainView mainView;
     private final MainRequests mainRequests;
@@ -18,12 +18,13 @@ public class MainPresenter extends LifecycleCallbacks {
         mainRequests = new MainRequests();
     }
 
-    void sendOrder() {
+    void requestDailyExRates() {
         Disposable subscription = mainRequests.getDailyExRates()
                 .subscribeWith(new DisposableSingleObserver<DailyExRates>() {
                     @Override
                     public void onSuccess(DailyExRates response) {
-                        mainView.onGetFinished(response.getCurrency());
+                        dailyExRates = response;
+                        mainView.onGetFinished(dailyExRates);
                     }
 
                     @Override
@@ -38,7 +39,10 @@ public class MainPresenter extends LifecycleCallbacks {
     void onCreate(Bundle savedInstanceState) {
         if (savedInstanceState != null) {
             dailyExRates = savedInstanceState.getParcelable("dailyExRates");
-        }
+            if (dailyExRates != null)
+                mainView.onGetFinished(dailyExRates);
+        } else
+            requestDailyExRates();
     }
 
     void onSaveInstanceState(Bundle outState) {

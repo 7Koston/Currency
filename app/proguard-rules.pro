@@ -7,6 +7,9 @@
 -keep class android.support.v7.** { *; }
 -keep interface android.support.v7.** { *; }
 
+-keep class com.tickaroo.tikxml.** { *; }
+-keep class **$$TypeAdapter { *; }
+
 -keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase
 
 -keep public class * extends android.app.Activity
@@ -20,6 +23,7 @@
 
 -keep interface com.scand.commerce.api.APIModel
 
+-keep @com.tickaroo.tikxml.annotation.Xml public class *
 
 -keepclassmembers class * implements android.os.Parcelable {
     static ** CREATOR;
@@ -32,6 +36,13 @@
     public void set*(...);
 }
 
+-keepclasseswithmembernames class * {
+    @com.tickaroo.tikxml.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @com.tickaroo.tikxml.* <methods>;
+}
 -keepclasseswithmembers class * {
     public <init>(android.content.Context, android.util.AttributeSet);
 }

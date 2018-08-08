@@ -14,7 +14,6 @@ public class CurrencyTableDataAdapter extends TableDataAdapter<Currency> {
 
     private static final int TEXT_SIZE = 14;
 
-
     public CurrencyTableDataAdapter(final Context context, final List<Currency> data) {
         super(context, data);
     }

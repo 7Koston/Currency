@@ -20,12 +20,10 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
     }
-
     lintOptions {
         checkReleaseBuilds true
         abortOnError false
     }
-
     buildTypes {
         release {
             shrinkResources true
@@ -44,10 +42,9 @@ android {
             debuggable true
         }
     }
-
     compileOptions {
-        targetCompatibility 1.8
-        sourceCompatibility 1.8
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
@@ -66,7 +63,11 @@ dependencies {
 
     implementation "com.squareup.retrofit2:retrofit:${retrofit}"
     implementation "com.squareup.retrofit2:adapter-rxjava2:${retrofit}"
+
+    implementation 'com.tickaroo.tikxml:core:0.8.14-SNAPSHOT'
     implementation 'com.tickaroo.tikxml:annotation:0.8.14-SNAPSHOT'
+    annotationProcessor 'com.tickaroo.tikxml:processor:0.8.14-SNAPSHOT'
+    
     implementation 'com.tickaroo.tikxml:retrofit-converter:0.8.14-SNAPSHOT'
 
     implementation "com.squareup.okhttp3:logging-interceptor:${okHttp3}"

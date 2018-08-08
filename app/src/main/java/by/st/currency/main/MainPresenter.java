@@ -2,6 +2,8 @@ package by.st.currency.main;
 
 import android.os.Bundle;
 
+import java.net.UnknownHostException;
+
 import by.st.currency.LifecycleCallbacks;
 import by.st.currency.main.table.data.DailyExRates;
 import io.reactivex.disposables.Disposable;
@@ -29,8 +31,11 @@ class MainPresenter extends LifecycleCallbacks {
 
                     @Override
                     public void onError(Throwable e) {
+                        String error = e.getLocalizedMessage();
                         e.printStackTrace();
-                        mainView.onErrorMessage("Error");
+                        if (e instanceof UnknownHostException)
+                            error = "Проверьте подключение к интернет";
+                        mainView.onErrorMessage(error);
                     }
                 });
         addSubscription(subscription);

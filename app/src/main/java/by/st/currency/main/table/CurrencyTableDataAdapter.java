@@ -60,13 +60,13 @@ public class CurrencyTableDataAdapter extends TableDataAdapter<Currency> {
                 renderedView = renderCharCode(currency);
                 break;
             case 1:
-                renderedView = renderScale(currency);
+                renderedView = renderRate(currency);
                 break;
             case 2:
                 renderedView = renderName(currency);
                 break;
             case 3:
-                renderedView = renderRate(currency);
+                renderedView = renderScale(currency);
                 break;
         }
 

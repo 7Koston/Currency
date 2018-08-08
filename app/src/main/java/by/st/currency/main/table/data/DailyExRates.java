@@ -26,7 +26,7 @@ public class DailyExRates implements Parcelable {
     };
 
     @Element(name = "Currency")
-    List<Currency> currency;
+    private List<Currency> currency;
     @Attribute(name = "Date")
     private String date;
 

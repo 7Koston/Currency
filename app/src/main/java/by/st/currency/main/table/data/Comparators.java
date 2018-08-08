@@ -37,7 +37,7 @@ public final class Comparators {
 
         @Override
         public int compare(final Currency o1, final Currency o2) {
-            return Double.compare(o1.getScale(), o2.getScale());
+            return Integer.compare(o1.getScale(), o2.getScale());
         }
     }
 

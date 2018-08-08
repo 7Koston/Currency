@@ -58,17 +58,13 @@ public class RetrofitClient {
                             Request request = chain.request();
                             if (isOnline()) {
                                 request = request.newBuilder()
-                                        .header("x-apikey",
-                                                "2c5a02e9ca0a055021d8b861899d122da637e")
-                                        .header("cache-control", "no-cache")
+                                        .header("cache-control", "public, max-stale=60")
                                         .header("User-Agent",
                                                 Constants.USER_AGENT)
                                         .build();
                                 return chain.proceed(request);
                             } else {
                                 return chain.proceed(request.newBuilder()
-                                        .header("x-apikey",
-                                                "2c5a02e9ca0a055021d8b861899d122da637e")
                                         .header("Cache-Control",
                                                 "public, only-if-cached, max-stale=604800")
                                         .build()

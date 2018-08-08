@@ -28,7 +28,7 @@ public class Currency implements Parcelable {
     @PropertyElement(name = "CharCode")
     private String CharCode;
     @PropertyElement(name = "Scale")
-    private double Scale;
+    private int Scale;
     @PropertyElement(name = "Name")
     private String Name;
     @PropertyElement(name = "Rate")
@@ -40,7 +40,7 @@ public class Currency implements Parcelable {
 
     private Currency(Parcel in) {
         NumCode = in.readInt();
-        Scale = in.readDouble();
+        Scale = in.readInt();
         Rate = in.readDouble();
         Id = in.readString();
         CharCode = in.readString();
@@ -71,11 +71,11 @@ public class Currency implements Parcelable {
         this.CharCode = CharCode;
     }
 
-    public double getScale() {
+    public int getScale() {
         return Scale;
     }
 
-    public void setScale(double Scale) {
+    public void setScale(int Scale) {
         this.Scale = Scale;
     }
 
@@ -103,7 +103,7 @@ public class Currency implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(NumCode);
-        dest.writeDouble(Scale);
+        dest.writeInt(Scale);
         dest.writeDouble(Rate);
         dest.writeString(Id);
         dest.writeString(CharCode);

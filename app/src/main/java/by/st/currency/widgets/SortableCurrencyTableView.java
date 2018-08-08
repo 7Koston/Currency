@@ -29,7 +29,7 @@ public class SortableCurrencyTableView extends SortableTableView<Currency> {
 
         final SimpleTableHeaderAdapter simpleTableHeaderAdapter =
                 new SimpleTableHeaderAdapter(context,
-                        R.string.char_code, R.string.scale, R.string.name, R.string.rate);
+                        R.string.char_code, R.string.rate, R.string.name, R.string.scale);
         simpleTableHeaderAdapter.setTextColor(ContextCompat.getColor(context,
                 R.color.table_header_text));
         setHeaderAdapter(simpleTableHeaderAdapter);
@@ -42,15 +42,15 @@ public class SortableCurrencyTableView extends SortableTableView<Currency> {
 
         final TableColumnWeightModel tableColumnWeightModel = new TableColumnWeightModel(4);
         tableColumnWeightModel.setColumnWeight(0, 2);
-        tableColumnWeightModel.setColumnWeight(1, 3);
+        tableColumnWeightModel.setColumnWeight(1, 2);
         tableColumnWeightModel.setColumnWeight(2, 3);
         tableColumnWeightModel.setColumnWeight(3, 2);
         setColumnModel(tableColumnWeightModel);
 
         setColumnComparator(0, Comparators.getCharCodeComparator());
-        setColumnComparator(1, Comparators.getScaleComparator());
+        setColumnComparator(1, Comparators.getRateComparator());
         setColumnComparator(2, Comparators.getNameComparator());
-        setColumnComparator(3, Comparators.getRateComparator());
+        setColumnComparator(3, Comparators.getScaleComparator());
     }
 
 }

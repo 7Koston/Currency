@@ -5,4 +5,5 @@
     <string name="scale">Множитель</string>
     <string name="name">Название</string>
     <string name="rate">Ставка</string>
+    <string name="repeat">ПОВТОРИТЬ</string>
 </resources>

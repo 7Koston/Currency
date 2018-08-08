@@ -2,7 +2,7 @@ package by.st.currency.main;
 
 import by.st.currency.main.table.data.DailyExRates;
 
-public interface MainView {
+interface MainView {
 
     void onGetFinished(DailyExRates response);
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/flMainRoot"
     android:layout_width="match_parent"
@@ -13,4 +13,4 @@
         app:tableView_headerColor="@color/colorPrimary"
         app:tableView_headerElevation="10" />
 
-</merge>
+</FrameLayout>

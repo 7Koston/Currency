@@ -16,5 +16,4 @@ public class LifecycleCallbacks {
     public void onStop() {
         compositeDisposable.clear();
     }
-
 }

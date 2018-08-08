@@ -33,7 +33,7 @@ public class RetrofitClient {
             buildHttpClient();
 
         Retrofit.Builder rBuilder = new Retrofit.Builder().
-                baseUrl("https://commerce-7c5d.restdb.io/rest/")
+                baseUrl("http://www.nbrb.by/Services/")
                 .addConverterFactory(TikXmlConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create());
 
